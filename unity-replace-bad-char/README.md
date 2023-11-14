@@ -1,22 +1,13 @@
 # unity-replace-bad-char README
 
+## Why this exist
+
+my unity font don't support `“` or `”` and I have lots of text in many place that have those character and need to be replace by `"`, so I create this extension to help with that
+
 ## Features
 
-replace text character that not work well in unity like `“` or `”` to the `"` which support in unity
-bad character list
+when run `replace Bad Unity Char` command will change all character below
 
 - “ -> "
 - ” -> "
 - ’ -> '
-  '
-
-## Extension Settings
-
-This extension contributes the following settings:
-
-- `myExtension.enable`: Enable/disable this extension.
-- `myExtension.thing`: Set to `blah` to do something.
-
-## Known Issues
-
-Calling out known issues can help limit users opening duplicate issues against your extension.
