@@ -3,7 +3,8 @@
   "displayName": "unity_replace_bad_char",
   "publisher": "meangpu",
   "description": "help replace bad ASCII character that not work well with unity",
-  "version": "0.0.1",
+  "version": "0.0.2",
+  "repository": "https://github.com/meangpu/ReplaceBadUnityCharacter",
   "engines": {
     "vscode": "^1.84.0"
   },
