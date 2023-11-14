@@ -8,6 +8,7 @@ bad character list
 - “ -> "
 - ” -> "
 - ’ -> '
+  '
 
 ## Extension Settings
 

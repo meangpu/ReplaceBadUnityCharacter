@@ -1,6 +1,7 @@
 {
   "name": "unity-replace-bad-char",
   "displayName": "unity_replace_bad_char",
+  "publisher": "meangpu",
   "description": "help replace bad ASCII character that not work well with unity",
   "version": "0.0.1",
   "engines": {
