@@ -1,0 +1,22 @@
+{
+  "files.exclude": {
+    "**/.git": true,
+    "**/.svn": true,
+    "**/.hg": true,
+    "**/CVS": true,
+    "**/.DS_Store": true,
+    "**/Thumbs.db": true,
+    "**/*.meta": true,
+    "desktop.ini": true,
+    "**/*.vscode": true,
+    "**/*.csproj": true,
+    "**/*.sln": true,
+    "**/Logs": true,
+    "**/Packages": true,
+    "**/Resources": true,
+    "**/Sound": true,
+    "**/Art": true,
+    "**/TextMesh Pro": true
+  },
+  "explorerExclude.backup": {}
+}
