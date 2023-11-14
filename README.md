@@ -73,4 +73,4 @@ vsce login `MY_SECRET_TOKEN_HERE`
 vsce publish
 ```
 
-5. wait for website to verify here [Manage Extensions](https://marketplace.visualstudio.com/manage/publishers/meangpu);
+5. wait for website to verify here [Manage Extensions](https://marketplace.visualstudio.com/manage/publishers/meangpu)
