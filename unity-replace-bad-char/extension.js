@@ -1,36 +1,61 @@
-// The module 'vscode' contains the VS Code extensibility API
-// Import the module and reference it with the alias vscode in your code below
-const vscode = require('vscode');
-
-// This method is called when your extension is activated
-// Your extension is activated the very first time the command is executed
-
+const vscode = require("vscode");
 /**
  * @param {vscode.ExtensionContext} context
  */
 function activate(context) {
+  console.log(
+    'Congratulations, your extension "unity-replace-bad-char" is now active!'
+  );
 
-	// Use the console to output diagnostic information (console.log) and errors (console.error)
-	// This line of code will only be executed once when your extension is activated
-	console.log('Congratulations, your extension "unity-replace-bad-char" is now active!');
+  let disposable = vscode.commands.registerCommand(
+    "unity-replace-bad-char.u-replaceBadChar",
+    function () {
+      const textEditor = vscode.window.activeTextEditor;
+      if (!textEditor) {
+        vscode.window.showErrorMessage("Editor Does Not Exist");
+        return;
+      }
+      var m;
+      let fullText = textEditor.document.getText();
+      const regex = /[“”]/gm; // 'g' flag is for global search & 'm' flag is for multiline.
+      const regex2 = /[‘’']/gm;
 
-	// The command has been defined in the package.json file
-	// Now provide the implementation of the command with  registerCommand
-	// The commandId parameter must match the command field in package.json
-	let disposable = vscode.commands.registerCommand('unity-replace-bad-char.helloWorld', function () {
-		// The code you place here will be executed every time your command is executed
+      let textReplace = fullText.replace(regex, `"`);
+      let textReplace2 = textReplace.replace(regex2, `'`);
 
-		// Display a message box to the user
-		vscode.window.showInformationMessage('Hello World from unity_replace_bad_char!');
-	});
+      //Creating a new range with startLine, startCharacter & endLine, endCharacter.
+      let invalidRange = new vscode.Range(
+        0,
+        0,
+        textEditor.document.lineCount,
+        0
+      );
 
-	context.subscriptions.push(disposable);
+      // To ensure that above range is completely contained in this document.
+      let validFullRange = textEditor.document.validateRange(invalidRange);
+
+      while ((m = regex.exec(fullText)) !== null) {
+        // This is necessary to avoid infinite loops with zero-width matches
+        if (m.index === regex.lastIndex) {
+          regex.lastIndex++;
+        }
+
+        textEditor.edit((editBuilder) => {
+          editBuilder.replace(validFullRange, textReplace2);
+        });
+      }
+
+      vscode.window.showInformationMessage(
+        "Finish replace bad unity character!"
+      );
+    }
+  );
+
+  context.subscriptions.push(disposable);
 }
 
-// This method is called when your extension is deactivated
 function deactivate() {}
-
 module.exports = {
-	activate,
-	deactivate
-}
+  activate,
+  deactivate,
+};

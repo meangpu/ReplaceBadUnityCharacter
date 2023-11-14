@@ -3,6 +3,11 @@
 ## Features
 
 replace text character that not work well in unity like `“` or `”` to the `"` which support in unity
+bad character list
+
+- “ -> "
+- ” -> "
+- ’ -> '
 
 ## Extension Settings
 
